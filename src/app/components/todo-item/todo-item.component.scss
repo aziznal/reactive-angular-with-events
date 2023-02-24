@@ -1,0 +1,80 @@
+:host {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 56px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--color-gray-200);
+
+  padding: 12px;
+
+  background-color: var(--color-neutral-200);
+
+  &:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  // minor highlight on hover
+  &:hover {
+    background-color: var(--color-gray-200);
+  }
+}
+
+.todo-body {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  width: 100%;
+
+  gap: 8px;
+}
+
+.title {
+  min-width: fit-content;
+
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.description {
+  color: var(--color-gray-400);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+input[type='checkbox'] {
+  accent-color: var(--color-primary-400);
+
+  cursor: pointer;
+
+  width: 24px;
+}
+
+.handle {
+  cursor: grab;
+
+  color: var(--color-gray-500);
+}
+
+input {
+  font-size: 1rem;
+
+  width: 100%;
+}
+
+.completed {
+  text-decoration: line-through;
+
+  color: var(--color-gray-400);
+}

@@ -1,0 +1,119 @@
+// margin and padding utils
+@for $i from 0 through 8 {
+  m-#{$i} {
+    margin: $i * 4px;
+  }
+
+  mx-#{$i} {
+    margin-left: $i * 4px;
+    margin-right: $i * 4px;
+  }
+
+  my-#{$i} {
+    margin-top: $i * 4px;
+    margin-bottom: $i * 4px;
+  }
+
+  mt-#{$i} {
+    margin-top: $i * 4px;
+  }
+
+  mr-#{$i} {
+    margin-right: $i * 4px;
+  }
+
+  mb-#{$i} {
+    margin-bottom: $i * 4px;
+  }
+
+  ml-#{$i} {
+    margin-left: $i * 4px;
+  }
+
+  p-#{$i} {
+    padding: $i * 4px;
+  }
+
+  px-#{$i} {
+    padding-left: $i * 4px;
+    padding-right: $i * 4px;
+  }
+
+  py-#{$i} {
+    padding-top: $i * 4px;
+    padding-bottom: $i * 4px;
+  }
+
+  pt-#{$i} {
+    padding-top: $i * 4px;
+  }
+
+  pr-#{$i} {
+    padding-right: $i * 4px;
+  }
+
+  pb-#{$i} {
+    padding-bottom: $i * 4px;
+  }
+
+  pl-#{$i} {
+    padding-left: $i * 4px;
+  }
+}
+
+// flex utils
+.d-flex {
+  display: flex;
+}
+.fx-row {
+  flex-direction: row;
+}
+.fx-column {
+  flex-direction: column;
+}
+.fx-main-axis-start {
+  justify-content: flex-start;
+}
+.fx-main-axis-center {
+  justify-content: center;
+}
+.fx-main-axis-end {
+  justify-content: flex-end;
+}
+.fx-main-axis-space-between {
+  justify-content: space-between;
+}
+.fx-main-axis-space-around {
+  justify-content: space-around;
+}
+.fx-main-axis-space-evenly {
+  justify-content: space-evenly;
+}
+.fx-cross-axis-start {
+  align-items: flex-start;
+}
+.fx-cross-axis-center {
+  align-items: center;
+}
+.fx-cross-axis-end {
+  align-items: flex-end;
+}
+.fx-cross-axis-space-between {
+  align-items: space-between;
+}
+.fx-cross-axis-space-around {
+  align-items: space-around;
+}
+.fx-cross-axis-space-evenly {
+  align-items: space-evenly;
+}
+.fx-fill {
+  width: 100%;
+  height: 100%;
+}
+// loop for generating gap
+@for $i from 0 through 8 {
+  .gap-#{$i} {
+    gap: $i * 4px;
+  }
+}

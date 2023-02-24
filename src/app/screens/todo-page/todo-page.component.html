@@ -1,0 +1,51 @@
+<div
+  id="pageContainer"
+  cdkDropList
+  (cdkDropListDropped)="moveTodoItem($event)"
+>
+  <div id="header">
+    <h2>Todo List</h2>
+
+    <button
+      (click)="createTodo()"
+      [disabled]="todoService.loading$ | async"
+    >
+      <i class="fas fa-plus"></i>
+
+      New
+    </button>
+  </div>
+
+  <ng-container *ngIf="todos$ | async as todos; else loading">
+    <app-todo-item
+      *ngFor="let todo of todos"
+      [todo]="todo"
+      (updated)="updateTodo($event)"
+      (deleted)="deleteTodo($event)"
+      appDisabledOverlay
+      [disabled]="todoService.loading$ | async"
+      [cdkDragDisabled]="todoService.loading$ | async"
+      cdkDrag
+    ></app-todo-item>
+
+    <div
+      id="noTodos"
+      *ngIf="todos.length === 0"
+    >
+      No todos found.
+    </div>
+
+    <!-- Loading template when a todo is being modified, deleted, or created -->
+    <div
+      class="loading-view"
+      *ngIf="todoService.loading$ | async"
+    >
+      Loading...
+    </div>
+  </ng-container>
+</div>
+
+<!-- loading template view -->
+<ng-template #loading>
+  <div class="loading-view">Loading...</div>
+</ng-template>

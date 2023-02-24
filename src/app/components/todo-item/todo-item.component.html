@@ -1,0 +1,92 @@
+<div class="todo-body">
+  <!-- Checkbox -->
+  <div>
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (change)="setCompletion(checkbox.checked)"
+      [id]="'todo' + todo.id"
+      *ngIf="!isEditMode"
+      #checkbox
+    />
+
+    <!-- Edit Mode -->
+    <div class="d-flex fx-row fx-cross-axis-center gap-1">
+      <input
+        type="text"
+        [(ngModel)]="editedTodo.title"
+        [value]="todo.title"
+        (keydown.enter)="_turnOffEditMode()"
+        (keydown.esc)="_turnOffEditMode()"
+        *ngIf="isEditMode"
+        #titleInput
+      >
+    </div>
+  </div>
+
+  <!-- Title -->
+  <label
+    class="title"
+    (click)="_turnOnEditMode({ focus: 'title' })"
+    (keydown.enter)="_turnOnEditMode({ focus: 'title' })"
+    (keydown.space)="_turnOnEditMode({ focus: 'title' })"
+    *ngIf="!isEditMode"
+    tabindex="0"
+    [class.completed]="todo.completed"
+  >
+    {{ todo.title }}
+  </label>
+
+  <!-- Description -->
+  <div class="description fx-fill">
+    <span
+      (click)="_turnOnEditMode({ focus: 'description' })"
+      (keydown.enter)="_turnOnEditMode({ focus: 'description' })"
+      (keydown.space)="_turnOnEditMode({ focus: 'description' })"
+      *ngIf="!isEditMode"
+      tabindex="0"
+      [class.completed]="todo.completed"
+    >
+      {{ todo.description }}
+    </span>
+
+    <!-- Edit mode -->
+    <div class="d-flex fx-row fx-cross-axis-center gap-1">
+      <input
+        type="text"
+        [(ngModel)]="editedTodo.description"
+        [value]="todo.description"
+        (keydown.enter)="_turnOffEditMode()"
+        (keydown.esc)="_turnOffEditMode()"
+        *ngIf="isEditMode"
+        #descriptionInput
+      >
+
+      <!-- tick icon -->
+      <i
+        class="fas fa-check mr-6"
+        (click)="_turnOffEditMode()"
+        (keydown.enter)="_turnOffEditMode()"
+        (keydown.space)="_turnOffEditMode()"
+        *ngIf="isEditMode"
+        style="cursor: pointer; color: green;"
+        tabindex="0"
+      ></i>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex fx-row gap-6">
+  <!-- Delete icon -->
+  <i
+    class="fas fa-trash"
+    style="cursor: pointer; color: red;"
+    (click)="delete()"
+    (keydown.enter)="delete()"
+    (keydown.space)="delete()"
+    tabindex="0"
+  ></i>
+
+  <!-- Drag icon -->
+  <i class="handle fas fa-grip-vertical"></i>
+</div>

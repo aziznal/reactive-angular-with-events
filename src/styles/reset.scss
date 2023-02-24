@@ -1,0 +1,22 @@
+// reset everything
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// reset list styles
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 100vw;
+
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
