@@ -1,5 +1,5 @@
 import { Todo } from './../../models/todo.model';
-import { TodoLocalDataSource } from './../../data/todo-data-source.service';
+import { TodoService } from '../../data/todo.service';
 import { Component } from '@angular/core';
 import { CdkDragSortEvent, moveItemInArray } from '@angular/cdk/drag-drop';
 
@@ -8,9 +8,9 @@ import { CdkDragSortEvent, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrls: ['./todo-page.component.scss'],
 })
 export class TodoPageComponent {
-  constructor(public todoService: TodoLocalDataSource) {}
+  constructor(public todoService: TodoService) {}
 
-  todos$ = this.todoService.getTodoItems();
+  todos$ = this.todoService.todos$;
 
   async createTodo() {
     await this.todoService.addTodoItem({
