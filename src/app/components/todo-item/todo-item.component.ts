@@ -33,9 +33,7 @@ export class TodoItemComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnChanges(): void {
-    this.editedTodo = { ...this.todo };
-  }
+  ngOnChanges(): void { }
 
   complete(): void {
     this.update({ ...this.todo, completed: true });
